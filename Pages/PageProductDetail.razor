@@ -1,0 +1,28 @@
+@page "/products/{id:int}/details"
+@using Entregable3.Data
+
+<PageTitle>Product Detail</PageTitle>
+
+<h1>Datos del producto:</h1>
+
+<h2>Id: @product.id  </h2>
+<h2>Code: @product.Code</h2>
+<h2>Name: @product.Name</h2>
+<h2>Price: @product.Price</h2>
+
+@code{
+    [Parameter]
+    public int id { get; set;}
+
+    private Product product;
+
+
+    protected override void OnInitialized()
+    {
+        InMemoryProducts productsBD = new InMemoryProducts();
+        List<Product> products = productsBD.getProducts();
+
+        product = products[this.id-1];
+
+    }
+}

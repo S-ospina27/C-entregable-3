@@ -1,0 +1,75 @@
+
+
+
+Crear un proyecto con la tecnología de Blazor de C# que contenga las siguientes características.
+
+Base de proyecto: https://github.com/RDuuke90/PageProduct/archive/refs/tags/v1.0.0.zip
+
+Páginas del sitio
+
+
+Path	                        Pages
+/	                            PageWelcome
+/contact	                    PageContact
+/products	                    PageProducts
+/products/{index:int}/details	PageProductDetail
+
+
+                                ------Contenido de cada página----------
+
+####PageWelcome:
+
+            Bienvenidos a la página de {*Inserte nombre*}
+
+                Te ofrecemos los mejores productos al día
+                        Delivery Gratis 
+
+Nota: Se debe crear un componente interno en el cual se envía como parámetro el nombre de la página
+
+Estaría la page y el componente hijo 
+
+
+
+
+
+####PageContact: 
+
+Crear un formulario con los siguientes campos:
+
+Nombre, Correo electrónico, Número de Teléfono y Mensaje
+
+Y que cuando envie el formulario en la parte inferior se imprima el contacto que acabe de enviar con el siguiente formato
+
+Hola soy, {Nombre}, Quiero contactarme con ustedes por lo siguiente:
+{Mensaje}.
+
+Pueden comunicarse conmigo en:
+Correo electrónico: {Correo}
+Teléfono: {Teléfono}
+
+
+
+
+
+
+
+####PageProducts:
+
+Crear una tabla donde me liste los productos que ofrece el sitio.
+
+La información se carga del archivo Data/InMemoryProducts.cs
+
+Y deben colocar un enlace para ir a la ruta de detalle de cada producto 
+{/products/{code:sting}/details}
+
+
+
+
+
+####PageProductDetail:
+
+Cargar la información del producto seleccionada por el índice
+
+
+
+

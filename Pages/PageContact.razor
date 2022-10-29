@@ -1,0 +1,72 @@
+@page "/contact"
+@using Entregable3.Components
+@using Entregable3.Data
+
+<PageTitle>Contact</PageTitle>
+
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+  <input type="text" class="form-control" @bind="name" placeholder="nombre...">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Correo</label>
+  <input type="email" class="form-control" @bind="mail" placeholder="correo...">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Número de Teléfono </label>
+  <input type="number" class="form-control" @bind="phone" placeholder="telefono...">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Mensaje</label>
+  <input type="text" class="form-control" @bind="message" placeholder="mensaje...">
+</div>
+<button class="btn btn-success" @onclick="AgregarUsuario">Enviar</button>
+<br>
+
+@if(condition == true)
+{
+<ContactComponent nombre=@nombre correo=@correo telefono=@telefono mensaje=@mensaje/>
+}
+@code {
+    
+    private string nombre{get; set;}
+    private string correo {get; set;}
+    private string telefono {get; set;}
+    private string mensaje{get; set;}
+
+    private string? name;
+    private string? mail;
+    private string? phone;
+    private string? message;
+
+    private bool condition = false;
+
+   
+    private void AgregarUsuario()
+    {
+        if(
+            !string.IsNullOrWhiteSpace(name) &&
+            !string.IsNullOrWhiteSpace(mail) &&
+            !string.IsNullOrWhiteSpace(phone) &&
+            !string.IsNullOrWhiteSpace(message)
+        ) {
+            nombre=name;
+            correo=mail;
+            telefono=phone;
+            mensaje=message;
+           
+        
+            name = string.Empty;
+            mail = string.Empty;
+            phone = string.Empty;
+            message = string.Empty; 
+
+            condition=true;
+        }
+    }
+
+  
+
+}
+

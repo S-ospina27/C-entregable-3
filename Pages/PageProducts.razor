@@ -1,0 +1,44 @@
+@page "/products"
+@using Entregable3.Data
+
+<PageTitle>Products</PageTitle>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Code</td>
+            <td>Name</td>
+            <td>Price</td>
+            <td></td>
+        </tr>
+    </thead>
+<tbody>
+        @foreach (var product in products)
+        {
+            <tr>
+                <td>@product.id</td>
+                <td>@product.Code</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>
+                    <a class="btn btn-info" href="/products/@product.id/details">
+                        Ver
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@code {
+    
+    public List<Product> products = new();
+
+     protected override void OnInitialized()
+    {
+        InMemoryProducts productsBD = new InMemoryProducts();
+        products = productsBD.getProducts();
+    }
+}
